@@ -12,6 +12,7 @@ services:
       - 443:443
     volumes:
       - ./frontend:/frontend
+      - /frontend/node_modules
 
   backend:
     image: backend
@@ -24,6 +25,7 @@ services:
       - 3000:3000
     volumes:
       - ./backend:/backend
+      - /backend/node_modules
 
   db:
     image: mongo:latest

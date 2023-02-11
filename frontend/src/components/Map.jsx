@@ -5,6 +5,8 @@ import SuburbDetail from "./SuburbDetail";
 
 import { featureColor, addPropertiesToFeatures } from "../utils";
 
+const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 export default function Map() {
   const ref = useRef(null);
   const [map, setMap] = useState(null);
@@ -47,7 +49,7 @@ export default function Map() {
     setSuburb(null);
 
     const data = await fetch(
-      "http://localhost:3000/api/data?" +
+      "/api/data?" +
         new URLSearchParams({
           saLevel,
           category,
