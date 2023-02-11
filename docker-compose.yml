@@ -1,0 +1,36 @@
+version: "3.4"
+
+services:
+  frontend:
+    image: frontend
+    build: ./frontend
+    environment:
+      NODE_ENV: development
+    env_file:
+      - ./frontend.env
+    ports:
+      - 5000:5000
+    volumes:
+      - ./frontend:/frontend
+
+  backend:
+    image: backend
+    build: ./backend
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3000:3000
+    volumes:
+      - ./backend:/backend
+
+  db:
+    image: mongo:latest
+    env_file:
+      - ./db.env
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+
+volumes:
+  mongodb_data_container:
