@@ -49,7 +49,8 @@ export default function Map() {
     setSuburb(null);
 
     const data = await fetch(
-      "/api/data?" +
+      apiUrl +
+        "/api/data?" +
         new URLSearchParams({
           saLevel,
           category,
